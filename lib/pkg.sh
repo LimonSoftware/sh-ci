@@ -41,5 +41,5 @@ pkg_venv_install() {
     . "$VENV_DIR"/bin/activate
 
     ci_msg_subsection "Installing python (pip) $pkgs ..."
-    pip3 install $pkgs
+    pip3 install "$pkgs"
 }
