@@ -11,7 +11,7 @@ pkg_deb_update() {
 pkg_deb_install() {
     pkgs="$1"
 
-    ci_msg_section "Installing dependencies $pkgs ..."
+    ci_msg_subsection "Installing dependencies $pkgs ..."
     root_command "apt-get install -y $pkgs"
 }
 

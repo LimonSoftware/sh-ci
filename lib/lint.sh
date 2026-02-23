@@ -5,7 +5,7 @@ sh_lint() {
 
     check_command "shellcheck"
 
-    ci_msg_section "Running linter ..."
+    ci_msg_section "Running linter $scripts ..."
 
     for s in $scripts; do
         shellcheck -x "$s"
