@@ -1,6 +1,6 @@
 #!/bin/sh -e
 
-. ./sh-ci
+SH_CI_DIR="$(realpath .)" && export SH_CI_DIR && . "$SH_CI_DIR/sh-ci"
 
 pkg_deb_update
 pkg_deb_install "shellcheck"
