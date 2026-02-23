@@ -1,0 +1,16 @@
+#!/bin/sh
+#
+# Setup environment to use libraries.
+#
+# Environment exported:
+#
+# SH_CI_DIR: Directory containing the top level directory of the repository.
+#
+
+SH_CI_DIR="$(realpath "$(dirname "$0")")"
+export SH_CI_DIR
+
+. "$SH_CI_DIR/lib/base.sh"
+. "$SH_CI_DIR/lib/ci.sh"
+. "$SH_CI_DIR/lib/lint.sh"
+. "$SH_CI_DIR/lib/pkg.sh"
