@@ -3,6 +3,9 @@
 DEBIAN_FRONTEND=noninteractive
 export DEBIAN_FRONTEND
 
+VENV_DIR="$(realpath venv)"
+export VENV_DIR
+
 pkg_deb_update() {
     ci_msg_subsection "Updating ..."
     root_command "apt-get update -y"
@@ -27,4 +30,16 @@ pkg_pip_install() {
 
     ci_msg_subsection "Installing python (pip) $pkgs ..."
     root_command "pip3 install $pkgs"
+}
+
+pkg_venv_install() {
+    pkgs="$1"
+
+    ci_msg_subsection "Creating python virtualenv ..."
+    virtualenv "$VENV_DIR"
+    #shellcheck disable=SC1091
+    . "$VENV_DIR"/bin/activate
+
+    ci_msg_subsection "Installing python (pip) $pkgs ..."
+    pip3 install "$pkgs"
 }
