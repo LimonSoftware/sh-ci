@@ -6,7 +6,7 @@ check_command() {
         echo "ERROR: $cmd not found, please install it"
         echo "INFO: On Debian based distributions"
         echo "$ sudo apt install $cmd"
-        exit 1
+        return 1
     fi
 }
 
